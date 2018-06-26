@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(a, b){
+            return a+b;
+        }
+        
+        function multiply(a,b){
+            if( b<0)
+                return multiply(-a,-b)
+                
+            if(b ==0)
+                return 0
+            
+            return add(a, multiply(a,b-1))
+        }
+
+        function power(x,n){
+            if(n == 0)
+                return 1;
+
+            return multiply(x,power(x,n-1));
+        }
+        
+        function factorial(n){
+            if(n == 1)
+                return 1;
+        
+            return multiply(n,factorial(n-1))
+        }
+        
+        function fibonacci(n){
+            if( n==1 || n == 2)
+                return n-1;
+            
+            return add(fibonacci(n-1),fibonacci(n-2));
+        }
+        
+        console.log("Add: 2+4 = " + add(2,4))
+        console.log("Multiply: 6*8 = " + multiply(6,8))
+        console.log("Power: 2^8 = " + power(2,8))
+        console.log("Factorial: !4 = " + factorial(4))
+        console.log("Fibonacci: 8th value is " + fibonacci(8))
+    
+    </script>
+</body>
+</html>
