@@ -13,6 +13,7 @@
         }
         
         function multiply(a,b){
+               /*
             if( b<0)
                 return multiply(-a,-b)
                 
@@ -20,27 +21,57 @@
                 return 0
             
             return add(a, multiply(a,b-1))
+             */
+             2
+            var product = 0;
+             for(var i = 0; i<b; i++){
+                 product = add(a,product);
+             }
+             return product;
         }
 
         function power(x,n){
+            /*
             if(n == 0)
                 return 1;
 
             return multiply(x,power(x,n-1));
+             */
+
+             var answer = 1;
+             for(var i = 0; i<n; i++){
+                 answer = multiply(x,answer);
+             }
+             return answer;
         }
         
         function factorial(n){
+               /*
             if(n == 1)
                 return 1;
         
             return multiply(n,factorial(n-1))
+             */
+
+             var answer = 1;
+             for(var i = 1; i<=n; i++){
+                 answer = multiply(i,answer);
+             }
+             return answer;
         }
         
         function fibonacci(n){
-            if( n==1 || n == 2)
+            var tot = [0,1]
+            for(var i = 2; i<n; i++){
+                tot.push(add(tot[i-1], tot[i-2]))
+            }
+             return tot[n-1]; 
+            /*
+            if(n==1 || n == 2)
                 return n-1;
             
             return add(fibonacci(n-1),fibonacci(n-2));
+            */
         }
         
         console.log("Add: " + add(2,4))
